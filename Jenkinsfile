@@ -15,8 +15,9 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          cd /egov/node-jenkins
-          dockerImage = docker.build imagename
+          dir('/egov/node-jenkins') {
+            dockerImage = docker.build imagename
+        }
         }
       }
     }
